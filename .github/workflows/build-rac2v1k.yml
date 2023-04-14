@@ -30,6 +30,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        sudo -E apt-get -qq update
         echo "=============================================================================="
         echo "Freeing up disk space"
         df -hT
@@ -49,7 +50,6 @@ jobs:
         echo "Free up disk space complete"
         df -hT
         echo "=============================================================================="
-        sudo -E apt-get -qq update
         sudo -E apt-get -qq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
         bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
         git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
