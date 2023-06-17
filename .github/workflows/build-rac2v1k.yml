@@ -39,16 +39,20 @@ jobs:
     #     haskell: false
     #     large-packages: true
     #     swap-storage: false
+
     - name: Reclaim the bytes
       uses: data-intuitive/reclaim-the-bytes@v1
       with:
         remove-hosted-tool-cache: true
-        remove-android-sdk: false
-        remove-haskell-ghc: false
+        remove-go: false
+        remove-codeql: false
+        remove-powershell: false
+        remove-android-sdk: true
+        remove-haskell-ghc: true
         remove-swift: true
-        remove-dotnet: false
-        remove-docker-images: false
-        remove-swap: false
+        remove-dotnet: true
+        remove-docker-images: true
+        remove-swap: true
 
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
@@ -58,7 +62,7 @@ jobs:
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
-        remove-codeql: 'false'
+        remove-codeql: 'true'
         remove-docker-images: 'true'
 
     - name: Free up disk space complete
