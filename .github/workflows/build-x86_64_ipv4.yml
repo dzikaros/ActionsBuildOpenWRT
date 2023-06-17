@@ -30,15 +30,25 @@ jobs:
         df -hT
         echo "=============================================================================="
 
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with: 
-        tool-cache: true
-        android: false
-        dotnet: false
-        haskell: false
-        large-packages: true
-        swap-storage: false
+    # - name: Free Disk Space (Ubuntu)
+    #   uses: jlumbroso/free-disk-space@main
+    #   with: 
+    #     tool-cache: true
+    #     android: false
+    #     dotnet: false
+    #     haskell: false
+    #     large-packages: true
+    #     swap-storage: false
+    - name: Reclaim the bytes
+      uses: data-intuitive/reclaim-the-bytes@v1
+      with:
+        remove-hosted-tool-cache: true
+        remove-android-sdk: false
+        remove-haskell-ghc: false
+        remove-swift: true
+        remove-dotnet: false
+        remove-docker-images: false
+        remove-swap: false
 
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
@@ -48,7 +58,7 @@ jobs:
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
-        remove-codeql: 'true'
+        remove-codeql: 'false'
         remove-docker-images: 'true'
 
     - name: Free up disk space complete
