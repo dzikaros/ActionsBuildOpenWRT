@@ -45,16 +45,21 @@ jobs:
     #     remove-swap: true
     
     - name: "Optimize Disk Space"
-      uses: "hugoalh/disk-space-optimizer-ghaction@v0.4.0"
+      uses: "hugoalh/disk-space-optimizer-ghaction@v0.5.0"
       with:
         operate_async: "True"
         general_include: ".+"
-        dockerimage_include: ".+"
-        cache_apt: "True"
-        cache_docker: "True"
-        cache_homebrew: "True"
-        cache_npm: "True"
-        swap: "True"
+        general_exclude: ",^GCC$,^G\\+\\+$"
+        docker_include: ".+"
+        docker_prune: "True"
+        docker_clean: "True"
+        apt_prune: "True"
+        apt_clean: "True"
+        homebrew_prune: "True"
+        homebrew_clean: "True"
+        npm_prune: "True"
+        npm_clean: "True"
+        os_swap: "True"
 
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
