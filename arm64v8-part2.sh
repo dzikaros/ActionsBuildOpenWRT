@@ -6,7 +6,11 @@
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # ==========openclash===========
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+cd package
+git clone --depth=1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git
+cd OpenClash
+git sparse-checkout set luci-app-openclash
+cd ../..
 
 # 修改 Makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' {}
