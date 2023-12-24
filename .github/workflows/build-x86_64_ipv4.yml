@@ -36,7 +36,9 @@ jobs:
         operate_sudo: "True"
         operate_async: "True"
         general_include: ".+"
-        general_exclude: ",^GCC$,^G\\+\\+$"
+        general_exclude: |-
+          ^GCC$
+          ^G\+\+$
         docker_include: ".+"
         docker_prune: "True"
         docker_clean: "True"
