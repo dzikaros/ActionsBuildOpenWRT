@@ -44,6 +44,8 @@ jobs:
         general_exclude: |-
           ^GCC$
           ^G\+\+$
+          Clang
+          LLVM
         docker_include: ".+"
         docker_prune: "True"
         docker_clean: "True"
