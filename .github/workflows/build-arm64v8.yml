@@ -19,7 +19,8 @@ env:
   TZ: Asia/Shanghai
   PACK_DOWNLOAD_TARGET_PATH: openwrtPack/armvirt64
   PACK_PACKAGE_SOC: s905x3
-  PACK_KERNEL_VERSION_NAME: 5.15.13_6.1.5
+  PACK_KERNEL_VERSION_NAME: 6.6.y
+  KERNEL_REPO_URL: ophub/kernel
 
 jobs:
   build:
@@ -267,6 +268,7 @@ jobs:
         env:
           OPENWRT_ARMVIRT: ${{ env.PACK_DOWNLOAD_TARGET_PATH }}/*rootfs.tar.gz
           PACKAGE_SOC: ${{ env.PACK_PACKAGE_SOC }}
+          KERNEL_REPO_URL: ${{ env.KERNEL_REPO_URL }}
           KERNEL_VERSION_NAME: ${{ env.PACK_KERNEL_VERSION_NAME }}
           KERNEL_AUTO_LATEST: true
 
